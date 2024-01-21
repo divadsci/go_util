@@ -5,7 +5,7 @@ import (
 	"errors"
 	"os"
 
-	influxdb2 "github.com/influxdata/influxdb-client-go"
+	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
 )
 
 // Connect to an Influx Database reading the credentials from
@@ -34,5 +34,5 @@ func ConnectToInfluxDB() (influxdb2.Client, error) {
 func WriteLineToInfluxDB(line string, client influxdb2.Client, bucket string, org string) {
 	writeAPI := client.WriteAPI(org, bucket)
 	writeAPI.WriteRecord(line)
-	writeAPI.Close()
+	//writeAPI.Close()
 }

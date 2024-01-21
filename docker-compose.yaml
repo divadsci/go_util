@@ -1,0 +1,20 @@
+services:
+    grafana:
+        image: grafana/grafana-enterprise
+        container_name: grafana
+        restart: unless-stopped
+        ports:
+         - '3000:3000'
+        volumes:
+         - grafana-storage:/var/lib/grafana
+    victoriametrics:
+        image: victoriametrics/victoria-metrics:latest
+        container_name: victoriametrics
+        restart: unless-stopped
+        ports:
+         - 8428:8428
+        volumes:
+         - ./playground/data/victoriametrics/prometheus.yml:/etc/prometheus/prometheus.yml
+    
+volumes:
+  grafana-storage: {}
