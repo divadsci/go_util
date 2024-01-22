@@ -286,8 +286,8 @@ func loadKeys(filename string) {
 func logTemperature(mac string, temp float64) {
 	//log.Printf("%s thermometer_temperature_celsius %.1f\n", mac, temp)
 
-	therm_temp[mac] = temp
-	println("temp received")
+	//therm_temp[mac] = temp
+
 	pushVictoriaMetric(influxDataPkg{
 		metric: "thermometer_temperature_celsius",
 		mac:    mac,
@@ -298,7 +298,7 @@ func logTemperature(mac string, temp float64) {
 func logHumidity(mac string, hum float64) {
 	//log.Printf("%s thermometer_humidity_ratio %.0f\n", mac, hum)
 
-	therm_hum[mac] = hum
+	//therm_hum[mac] = hum
 
 	pushVictoriaMetric(influxDataPkg{
 		metric: "thermometer_humidity_ratio",
@@ -310,7 +310,7 @@ func logHumidity(mac string, hum float64) {
 func logVoltage(mac string, batv float64) {
 	//log.Printf("%s thermometer_battery_volts %.3f\n", mac, batv)
 
-	therm_volt[mac] = batv
+	//therm_volt[mac] = batv
 
 	pushVictoriaMetric(influxDataPkg{
 		metric: "thermometer_battery_volts",
@@ -322,7 +322,7 @@ func logVoltage(mac string, batv float64) {
 func logBatteryPercent(mac string, batp float64) {
 	//log.Printf("%s thermometer_battery_ratio %.0f\n", mac, batp)
 
-	therm_soc[mac] = batp
+	//therm_soc[mac] = batp
 
 	pushVictoriaMetric(influxDataPkg{
 		metric: "thermometer_battery_ratio",
